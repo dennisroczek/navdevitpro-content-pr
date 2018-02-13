@@ -21,6 +21,8 @@ The following table lists the compilation errors that might occur when you compi
 |Codeunit|5330|CRM Integration Management|CheckAnyRoleAssignedToUser|You have specified an unknown variable. Entities Define the variable under 'Global C/AL symbols'.|See [Resolving Codeunit 5330 CRM Integration Management Compilation Error](Resolve-Codunit-5330-Error-Converting-Database.md). |
 |Codeunit|6303|Azure AD Auth Flow|Initialize|Type conversion is not possible because 1 of the operators contains an invalid type. DotNet := GUID|See [Resolving Codeunit 6303 Azure AD Auth Flow Compilation Error](Resolve-Codunit-6303-Error-Converting-Database.md).|
 |Page|9621|Add Page Fields| SaveNewFieldDefinition|Type conversion is not possible because 1 of the operators contains an invalid type. Integer := OemMText|See [Resolving Page 9621 Add Page Fields Compilation Error](Resolve-Page-9621-Error-Converting-Database.md).|
+|Page|9623|Finish Up Design| | |See [Resolving Page 9623 Finish Up Design Compilation Error](Resolve-Page-9621-Error-Converting-Database.md).|
+|Page|9624|Finish Design List Part|||See [Finish Design List Part Compilation Error](Resolve-Page-9621-Error-Converting-Database.md).|
 |Page|9626|New Page Patterns List Part| - |TableData 2000000174 does not exist.|[Resolving Page 9626 New Page Patterns List Part Compilation Error](Resolve-Page-9626-Error-Converting-Database.md).|
 
 
