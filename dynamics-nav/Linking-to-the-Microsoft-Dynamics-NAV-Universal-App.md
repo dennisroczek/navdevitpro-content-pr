@@ -16,7 +16,7 @@ The protocol handler for the [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)]
 The [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] URL is based on the *ms-dynamicsnav* URI scheme, which is registered automatically when the app is installed. Invoking a URL based on this scheme will start the app with the provided parameters.   
   
 ## Constructing the URL  
-To construct a URL, start with `ms-dynamicsnav` scheme that points to your [!INCLUDE[nav_web_sever_instance_md](includes/nav_web_sever_instance_md.md)], and then add additional parameters as needed.
+To construct a URL, start with `ms-dynamicsnav` scheme that points to your [!INCLUDE[nav_web_sever_instance_md](includes/nav_web_server_instance_md.md)], and then add additional parameters as needed.
 
   
 The structure of a [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] link is very similar to links for the [!INCLUDE[nav_web](includes/nav_web_md.md)], and has the following syntax:  
