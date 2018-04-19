@@ -1,7 +1,7 @@
 ---
 title: "Linking to the Microsoft Dynamics NAV Universal App"
 ms.custom: na
-ms.date: 06/05/2016
+ms.date: 19/04/2018
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,26 +12,47 @@ caps.latest.revision: 17
 ---
 # Linking to the Microsoft Dynamics NAV Universal App
 The protocol handler for the [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] lets you construct a URL for starting the [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] on a device. You can then distribute this URL by e-mail or from a Web page to the users.  
-  
- The *ms-dynamicsnav* scheme is registered automatically when the app is installed. From this point onward, invoking a URL based on this URI scheme will start the app with the provided parameters.  
+
+The [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] URL is based on the *ms-dynamicsnav* URI scheme, which is registered automatically when the app is installed. Invoking a URL based on this scheme will start the app with the provided parameters.   
   
 ## Constructing the URL  
- To enable starting the [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] from a link, construct a URL with the *ms-dynamicsnav* scheme pointing to your [!INCLUDE[navnow](includes/navnow_md.md)] Web server.  
+To construct a URL, start with `ms-dynamicsnav` scheme that points to your [!INCLUDE[navnow](includes/nav_web_sever_instance_md.md)], and then add additional parameters as needed.
+
   
- The structure of a [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] link is very similar to links for the [!INCLUDE[nav_web](includes/nav_web_md.md)] and resembles this:  
-  
- `ms-dynamicsnav://<Server>:<Port>/<Instance>/[?tenant=<Tenant>&company=<Company>]/?profile=/?page=`  
-  
-|Parameter|Description|  
-|---------------|-----------------|  
-|Server|Optional. The public address for your [!INCLUDE[nav_web](includes/nav_web_md.md)] server.|  
-|Port|Optional. The port number for your [!INCLUDE[nav_web](includes/nav_web_md.md)] server. If not provided, the standard SSL port \(443\) is used.|  
-|Instance|Optional. The [!INCLUDE[nav_web](includes/nav_web_md.md)] instance that you want to connect to.|  
-|Tenant|Optional. The tenant that you want to connect to. If not provided, the default tenant is used.|  
-|Company|Optional. The company that you want to connect to. If not provided, the default company is used.|  
-|Profile|Optional. The profile that you want to connect with. If not provided, the default profile is used.|  
-|Page|Optional. The ID of the page that you want to open directly.|
-|Redirect|Optional. When users run the [!INCLUDE[nav_web_md](includes/nav_web_md.md)] in a browser, they will be presented with an option to download the [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] instead in order to improve the user experience. However, if this is not a wanted scenario, this experience can be manually overridden by adding the parameter ```?redirect=0``` to the URL.|  
+The structure of a [!INCLUDE[nav_uni_app](includes/nav_uni_app_md.md)] link is very similar to links for the [!INCLUDE[nav_web](includes/nav_web_md.md)], and has the following syntax:  
+
+```
+ms-dynamicsnav://<hostname>[:<port>][/<instance>]/[?<parameter>=<value>[&<parameter>=<value>]]
+```
+
+`[]` indicates optional parameters; all other parameters are required.
+
+`<>` indicates values that you must supply. Do not include the brackets in the address.
+
+
+## Parameters
+The following table describes the parameters for the main part of the URL, which are the parameters up to and including `[/<instance>]/`.
+
+|Parameter|Description| Example |
+|---------|-----------|---------|  
+|hostname|The computer name, domain name, or IP address of the computer/server that hosts the [!INCLUDE[nav_web_server_instance_md](includes/nav_web_server_instance_md.md)] instance.| `ms-dynamicsnav://mywebservercomputer/`<br /><br />`ms-dynamicsnav://www.cronus.com/`<br /><br />`ms-dynamicsnav://192.168.0.254/`| 
+|port|The port number for your [!INCLUDE[nav_web_server_instance_md](includes/nav_web_server_instance_md.md)] instance. If not provided, the standard SSL port \(443\) is used.| `ms-dynamicsnav://mywebservercomputer:80/`<br /><br />`ms-dynamicsnav://www.cronus.com:80/`<br /><br />`ms-dynamicsnav://192.168.0.254:80/` |
+|Instance|The [!INCLUDE[nav_web_server_instance_md](includes/nav_web_server_instance_md.md)] instance that you want to connect to.| `ms-dynamicsnav://mywebservercomputer:80/dynamicsnav110/`<br /><br />`ms-dynamicsnav://www.cronus.com:80/dynamicsnav110/`<br /><br />`ms-dynamicsnav://192.168.0.254:80/dynamicsnav110/`|
+
+The following table describes the optional parameters that you can specify after `[/<instance>]/`. These parameters are referred to as the *query parameters*.
+
+> [!NOTE]
+> The query parameters can be in any order. However, the first parameter must be preceded by the `?` symbol, and any additional parameters must be preceded by the `&` symbol, like `ms-dynamicsnav://mywebservercomputer/?page=21&mode=create`.
+
+|Parameter|Description| Example |
+|---------|-----------|---------|  
+|page	|The ID of the page that you want to open directly.|`ms-dynamicsnav://mywebservercomputer:80/dynamicsnav110/?page=21`<br /><br />`ms-dynamicsnav://www.cronus.com/?page=21`|
+|bookmark|	The bookmark of the record you want to open. The value of a bookmark is an alphanumeric string of characters, for example, `19%3bGwAAAAJ7BDEAMAAwADA%3d`.<br /><br /> For the page types Card, CardPart, and Document, the bookmark specifies the record that is shown in the page. For page types List, ListPart, and Worksheet, the bookmark specifies the record that is selected in the list on the page.<br /><br /> **Important:**  Bookmarks are generated automatically. You can only determine a value for the bookmark by displaying the page in the client and looking at its address. Therefore, a bookmark is only relevant when the address you are working with has been copied from another instance of the page.|`ms-dynamicsnav://mywebservercomputer/?bookmark=19%3bGwAAAAJ7BDEAMAAwADA%3d`|
+|filter	|The filter you want to apply to the page.<br /><br />The filter parameter enables you to display only records from the underlying table of the page that have specific values for one or more fields.	For more information about filters, see [Filtering Data on the Page](devenv-web-client-urls.md#Filtering).|`ms-dynamicsnav://mywebservercomputer/?page9305&filter='No.'%20IS%20'1001'`<br /><br />`ms-dynamicsnav://mywebservercomputer/?page9305&filter='Sell-to-Customer-No.'-IS-'10000'-AND-'Location-Code'-IS-'BLUE'`|
+|profile|The name of the profile that you want to use in the client. This determines the Role Center that is opened. If not provided, the default profile is used. Business Manager	|`ms-dynamicsnav://mywebservercomputer/?profile=BUSINESS%20%MANAGER`|
+|company|The company that you want to open in the client. If not provided, the default company is used. CRONUS%20International%20Ltd.|`ms-dynamicsnav://mywebservercomputer/?'company=CRONUS%20International%20Ltd.'`|
+|mode|Whether the page opens in view, edit, or create mode. `view` only lets you see the data on the page, not modify data. `edit` lets you to modify data on the page. `create` lets you to modify data on the page and add new entities. |`ms-dynamicsnav://mywebservercomputer/?page=21&mode=create`|
+|tenant	|The ID of the tenant that you want to connect to. If not provided, the default tenant is used.|`ms-dynamicsnav://mywebservercomputer/?tenant=mytenant2-1`|
   
 > [!NOTE]  
 >  It is not possible to specify which client type to open up the URL in; the last used client will open up when clicking the URL.  
