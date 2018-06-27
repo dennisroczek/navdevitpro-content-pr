@@ -129,7 +129,7 @@ When you deploy your application online, you must provide a compressed .zip file
 To upload your deployable package, you will create a project in LCS. 
 
 1. Sign-in to LCS from [https://lcs.dynamics.com/v2](https://lcs.dynamics.com/logon/index).
-2. On the **Geting Started** page, under Recent Project
+2. On the **Getting Started** page, under Recent Projects or All Projects, select **+**.
 
      ![Shows the Getting Started page in the LCS portal](media/LCSGettingStarted.png "Shows the Getting Started page in the LCS portal")  
 3. In the **What is this project for?** box, select **Migrate, create solutions, and learn**.
