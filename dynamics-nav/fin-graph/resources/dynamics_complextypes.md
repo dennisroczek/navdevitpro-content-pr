@@ -1,6 +1,6 @@
 ---
 title: complex types JSON | Microsoft Docs
-description: Complex data types in JSON for Dynamics 365 for Finance and Operations, Business edition.
+description: Complex data types in JSON for Dynamics 365 Business Central.
 services: project-madeira
 documentationcenter: ''
 author: SusanneWindfeldPedersen
@@ -10,7 +10,7 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/19/2018
 ms.author: solsen
 ---
 
@@ -175,7 +175,7 @@ Represents a Line Details complex type in [!INCLUDE[d365fin_long_md](../../inclu
 ```
 
 ## See also
-[Working with Dynamics 365 for Financials in Microsoft Graph](../resources/dynamics_overview.md)  
+[Working with Dynamics 365 Business Central in Microsoft Graph](../resources/dynamics_overview.md)  
 [Enabling the APIs for Microsoft Dynamics NAV](../../enabling-apis-for-dynamics-nav.md)  
 [Endpoints for the APIs](../../endpoints-apis-for-dynamics.md)  
 [Error Codes](../dynamics_error_codes.md)  

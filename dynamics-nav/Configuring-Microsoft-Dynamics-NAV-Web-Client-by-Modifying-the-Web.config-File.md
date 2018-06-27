@@ -34,23 +34,32 @@ The navsettings.json or web.config file is stored in the physical path of the we
     
     -   In the navsettings.json file, a setting has the format:
 
-        `"keyname": "keyvalue",`
+        ```
+        "keyname": "keyvalue",
+        ```
 
     -   In the web.config file, a setting has the format:
 
-        `<add key="keyname" value="keyvalue"/>`
+        ```
+        <add key="keyname" value="keyvalue"/>
+        ```
 
+    
     
     The `keyname` is the name of the configuration setting and the `keyvalue` is the value.
     
     For example, in the navsettings.json file, the configuration setting that specifies the Windows credential type for authenticating users is:
 
-    `"ClientServicesCredentialType":  "Windows",`
+    ```
+    "ClientServicesCredentialType":  "Windows",
+    ```
 
     In the web.config file, the setting is:
     
-    `<add key="ClientServicesCredentialType" value="Windows"/>`
-
+    ```
+    <add key="ClientServicesCredentialType" value="Windows"/>
+    ```
+    Include values in double quotes.
 2.  Find the configuration settings that you want to change, and then change the values.
 
     See the [Settings](Configuring-Microsoft-Dynamics-NAV-Web-Client-by-Modifying-the-Web.config-File.md#Settings) section for a description of each setting.
@@ -111,6 +120,7 @@ The following table describes the settings that are available in the navsettings
 |Privacy Link	|Specifies the URL to the privacy information for the application. This link also appears in the sign-in page.|
 | Legal Link |Specifies the URL to the legal information about application. |
 |Sign In Help Link	|This link appears on the sign-in page. It specifies the URL to a resource that provides information to help the user sign in the Dynamics NAV application.| 
+|PersonalizationEnabled|Specifies whether personalization is enabled in the [!INCLUDE[nav_web](includes/nav_web_md.md)]. Set to `true` to enable personalization.<br /><br />For complete instructions about how to enable personalization, see [Enable/Disable Personalization](https://docs.microsoft.com/en-us/dynamics-nav-app/ui-personalization-manage?#EnablePersonalization).|
 
 ## See Also  
 [How to: Set Up Multiple Web Server Instances for the Microsoft Dynamics NAV Web Client](How-to--Set-Up-Multiple-Web-Server-Instances-for-the-Microsoft-Dynamics-NAV-Web-Client.md)   
